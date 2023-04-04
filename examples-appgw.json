@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.10.61.36676",
+      "templateHash": "17322635064657728998"
+    }
+  },
+  "parameters": {
+    "name": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the Application Gateway."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "The location resources will be deployed."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/applicationGateways",
+      "apiVersion": "2019-09-01",
+      "name": "[parameters('name')]",
+      "location": "[parameters('location')]",
+      "zones": [
+        "1",
+        "2",
+        "3"
+      ],
+      "tags": {},
+      "properties": {
+        "sku": {
+          "name": "WAF_v2",
+          "tier": "WAF_v2"
+        },
+        "gatewayIPConfigurations": [],
+        "frontendIPConfigurations": [],
+        "frontendPorts": [],
+        "backendAddressPools": [],
+        "backendHttpSettingsCollection": [],
+        "httpListeners": [],
+        "requestRoutingRules": [],
+        "enableHttp2": false,
+        "sslCertificates": [],
+        "probes": [],
+        "autoscaleConfiguration": {
+          "minCapacity": 2,
+          "maxCapacity": 3
+        },
+        "webApplicationFirewallConfiguration": {
+          "enabled": true,
+          "firewallMode": "Detection",
+          "ruleSetType": "OWASP",
+          "ruleSetVersion": "3.0"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies",
+      "apiVersion": "2022-01-01",
+      "name": "agwwaf",
+      "location": "[parameters('location')]",
+      "properties": {
+        "managedRules": {
+          "managedRuleSets": [
+            {
+              "ruleSetType": "OWASP",
+              "ruleSetVersion": "3.2"
+            },
+            {
+              "ruleSetType": "Microsoft_BotManagerRuleSet",
+              "ruleSetVersion": "0.1"
+            }
+          ]
+        },
+        "policySettings": {
+          "state": "Enabled",
+          "mode": "Prevention"
+        }
+      }
+    }
+  ]
+}
