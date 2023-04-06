@@ -3391,6 +3391,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -3749,6 +3751,20 @@
     <li class="md-nav__item">
       <a href="../en/rules/Azure.AKS.DNSPrefix/" class="md-nav__link">
         Azure.AKS.DNSPrefix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/rules/Azure.AKS.DefenderProfile/" class="md-nav__link">
+        Azure.AKS.DefenderProfile
       </a>
     </li>
   
@@ -8775,6 +8791,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
@@ -8977,6 +8997,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../en/baselines/Azure.GA_2023_03/" class="md-nav__link">
+        Azure.GA_2023_03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../en/baselines/Azure.MCSB.v1/" class="md-nav__link">
         Azure.MCSB.v1
       </a>
@@ -9077,6 +9111,20 @@
     <li class="md-nav__item">
       <a href="../en/baselines/Azure.Preview_2022_12/" class="md-nav__link">
         Azure.Preview_2022_12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/baselines/Azure.Preview_2023_03/" class="md-nav__link">
+        Azure.Preview_2023_03
       </a>
     </li>
   
@@ -10602,10 +10650,24 @@
 <h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">#</a></h2>
 <p>What's changed since pre-release v1.26.0-B0011:</p>
 <ul>
+<li>New features:<ul>
+<li>Added March 2023 baselines <code>Azure.GA_2023_03</code> and <code>Azure.Preview_2023_03</code> by <a href="https://github.com/BernieWhite">@BernieWhite</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2138">#2138</a><ul>
+<li>Includes rules released before or during March 2023.</li>
+<li>Marked <code>Azure.GA_2022_12</code> and <code>Azure.Preview_2022_12</code> baselines as obsolete.</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>New rules:<ul>
 <li>API Management:<ul>
 <li>Check that wildcard <code>*</code> for any configuration option in CORS policies settings is not in use by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
   <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2073">#2073</a></li>
+</ul>
+</li>
+<li>Azure Kubernetes Service:<ul>
+<li>Check that the Defender profile with Azure Kubernetes Service clusters are enabled by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2123">#2123</a></li>
 </ul>
 </li>
 <li>Container App:<ul>
@@ -10627,6 +10689,17 @@
   <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2120">#2120</a></li>
 <li>Check that Azure AD-only authentication is enabled by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
   <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2118">#2118</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Updated rules:<ul>
+<li>Azure Kubernetes Service:<ul>
+<li>Updated <code>Azure.AKS.Version</code> to use latest stable version <code>1.25.6</code> by <a href="https://github.com/BernieWhite">@BernieWhite</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2136">#2136</a><ul>
+<li>Use <code>AZURE_AKS_CLUSTER_MINIMUM_VERSION</code> to configure the minimum version of the cluster.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

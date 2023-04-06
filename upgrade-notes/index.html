@@ -2177,6 +2177,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -2535,6 +2537,20 @@
     <li class="md-nav__item">
       <a href="../en/rules/Azure.AKS.DNSPrefix/" class="md-nav__link">
         Azure.AKS.DNSPrefix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/rules/Azure.AKS.DefenderProfile/" class="md-nav__link">
+        Azure.AKS.DefenderProfile
       </a>
     </li>
   
@@ -7561,6 +7577,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
@@ -7763,6 +7783,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../en/baselines/Azure.GA_2023_03/" class="md-nav__link">
+        Azure.GA_2023_03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../en/baselines/Azure.MCSB.v1/" class="md-nav__link">
         Azure.MCSB.v1
       </a>
@@ -7863,6 +7897,20 @@
     <li class="md-nav__item">
       <a href="../en/baselines/Azure.Preview_2022_12/" class="md-nav__link">
         Azure.Preview_2022_12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/baselines/Azure.Preview_2023_03/" class="md-nav__link">
+        Azure.Preview_2023_03
       </a>
     </li>
   
@@ -8200,30 +8248,30 @@ For information on other options that will be renamed see <a href="../deprecatio
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Set the <code>AZURE_AKS_CLUSTER_MINIMUM_VERSION</code> option in <code>ps-rule.yaml</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># YAML: Set the AZURE_AKS_CLUSTER_MINIMUM_VERSION configuration option to 1.25.4</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># YAML: Set the AZURE_AKS_CLUSTER_MINIMUM_VERSION configuration option to 1.25.6</span>
 <span class="nt">configuration</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">AZURE_AKS_CLUSTER_MINIMUM_VERSION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.25.4</span>
+<span class="w">  </span><span class="nt">AZURE_AKS_CLUSTER_MINIMUM_VERSION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.25.6</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Set the <code>PSRULE_CONFIGURATION_AZURE_AKS_CLUSTER_MINIMUM_VERSION</code> environment variable.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Bash: Set the AZURE_AKS_CLUSTER_MINIMUM_VERSION configuration option to 1.25.4</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PSRULE_CONFIGURATION_AZURE_AKS_CLUSTER_MINIMUM_VERSION</span><span class="o">=</span><span class="m">1</span>.25.4
+<div class="highlight"><pre><span></span><code><span class="c1"># Bash: Set the AZURE_AKS_CLUSTER_MINIMUM_VERSION configuration option to 1.25.6</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PSRULE_CONFIGURATION_AZURE_AKS_CLUSTER_MINIMUM_VERSION</span><span class="o">=</span><span class="m">1</span>.25.6
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Set the <code>PSRULE_CONFIGURATION_AZURE_AKS_CLUSTER_MINIMUM_VERSION</code> environment variable.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># GitHub Actions: Set the AZURE_AKS_CLUSTER_MINIMUM_VERSION configuration option to 1.25.4</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># GitHub Actions: Set the AZURE_AKS_CLUSTER_MINIMUM_VERSION configuration option to 1.25.6</span>
 <span class="nt">env</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">PSRULE_CONFIGURATION_AZURE_AKS_CLUSTER_MINIMUM_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1.25.4&#39;</span>
+<span class="w">  </span><span class="nt">PSRULE_CONFIGURATION_AZURE_AKS_CLUSTER_MINIMUM_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1.25.6&#39;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Set the <code>PSRULE_CONFIGURATION_AZURE_AKS_CLUSTER_MINIMUM_VERSION</code> environment variable.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Azure Pipelines: Set the AZURE_AKS_CLUSTER_MINIMUM_VERSION configuration option to 1.25.4</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Azure Pipelines: Set the AZURE_AKS_CLUSTER_MINIMUM_VERSION configuration option to 1.25.6</span>
 <span class="nt">variables</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PSRULE_CONFIGURATION_AZURE_AKS_CLUSTER_MINIMUM_VERSION</span>
-<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1.25.4&#39;</span>
+<span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1.25.6&#39;</span>
 </code></pre></div>
 </div>
 </div>
@@ -8255,7 +8303,7 @@ For example:</p>
   <small>
     
       Last update:
-      2022-12-17
+      2023-04-06
     
   </small>
 </div>
