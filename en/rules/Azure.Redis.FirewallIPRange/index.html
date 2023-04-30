@@ -2122,6 +2122,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -2942,6 +2944,20 @@
     <li class="md-nav__item">
       <a href="../Azure.APIM.Name/" class="md-nav__link">
         Azure.APIM.Name
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Azure.APIM.PolicyBase/" class="md-nav__link">
+        Azure.APIM.PolicyBase
       </a>
     </li>
   
@@ -5545,6 +5561,13 @@
         <li class="md-nav__item">
   <a href="#recommendation" class="md-nav__link">
     Recommendation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
   </a>
   
 </li>
@@ -8184,6 +8207,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#links" class="md-nav__link">
     Links
   </a>
@@ -8236,10 +8266,14 @@ Normally, you want to limit the number of IP addresses permitted through the fir
 <h2 id="recommendation">Recommendation<a class="headerlink" href="#recommendation" title="Permanent link">#</a></h2>
 <p>The Redis cache has greater than ten (10) public IP addresses that are permitted network access.
 Some rules may not be needed or can be reduced.</p>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
+<p>This rule is not applicable when Redis is configured to allow private connectivity by setting <code>properties.publicNetworkAccess</code> to <code>Disabled</code>.
+Firewall rules can be used with VNet injected caches, but not private endpoints.</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#default-redis-server-configuration#firewall">How to configure Azure Cache for Redis - Firewall</a></li>
-<li><a href="https://docs.microsoft.com/azure/templates/microsoft.cache/2022-05-01/redis/firewallrules">Microsoft.Cache redis/firewallRules</a></li>
+<li><a href="https://learn.microsoft.com/azure/azure-cache-for-redis/cache-configure#default-redis-server-configuration#firewall">How to configure Azure Cache for Redis - Firewall</a></li>
+<li><a href="https://learn.microsoft.com/azure/azure-cache-for-redis/cache-network-isolation#limitations-of-firewall-rules">Limitations of firewall rules</a></li>
+<li><a href="https://learn.microsoft.com/azure/templates/microsoft.cache/redis/firewallrules">Azure deployment reference</a></li>
 </ul>
 
   <!-- Last update of source file -->
@@ -8250,7 +8284,7 @@ Some rules may not be needed or can be reduced.</p>
   <small>
     
       Last update:
-      2022-10-03
+      2023-04-29
     
   </small>
 </div>
