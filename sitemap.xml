@@ -986,6 +986,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Defender.Api/</loc>
+         <lastmod>2023-05-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Defender.AppServices/</loc>
          <lastmod>2023-05-11</lastmod>
          <changefreq>daily</changefreq>
