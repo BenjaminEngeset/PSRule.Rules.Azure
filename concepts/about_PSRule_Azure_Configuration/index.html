@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="../../assets/ms_icon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
     
     
       
@@ -1349,6 +1349,12 @@
       <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
       
       
+        
+          
+        
+          
+        
+          
         
           
         
@@ -3972,6 +3978,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../en/rules/Azure.Cosmos.DefenderCloud/" class="md-nav__link">
+        Azure.Cosmos.DefenderCloud
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../en/rules/Azure.Cosmos.DisableMetadataWrite/" class="md-nav__link">
         Azure.Cosmos.DisableMetadataWrite
       </a>
@@ -4156,6 +4176,20 @@
     <li class="md-nav__item">
       <a href="../../en/rules/Azure.Defender.Servers/" class="md-nav__link">
         Azure.Defender.Servers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../en/rules/Azure.Defender.Storage.MalwareScan/" class="md-nav__link">
+        Azure.Defender.Storage.MalwareScan
       </a>
     </li>
   
@@ -6282,6 +6316,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../en/rules/Azure.Storage.DefenderCloud.MalwareScan/" class="md-nav__link">
+        Azure.Storage.DefenderCloud.MalwareScan
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../en/rules/Azure.Storage.FileShareSoftDelete/" class="md-nav__link">
         Azure.Storage.FileShareSoftDelete
       </a>
@@ -8349,6 +8397,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#azure_cosmos_defender_per_account" class="md-nav__link">
+    AZURE_COSMOS_DEFENDER_PER_ACCOUNT
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8396,8 +8451,9 @@ For details of setting configuration options see <a href="https://aka.ms/ps-rule
 <li><a href="#azure_subscription">AZURE_SUBSCRIPTION</a></li>
 <li><a href="#azure_policy_ignore_list">AZURE_POLICY_IGNORE_LIST</a></li>
 <li><a href="#azure_policy_rule_prefix">AZURE_POLICY_RULE_PREFIX</a></li>
+<li><a href="#azure_apim_min_api_version">AZURE_APIM_MIN_API_VERSION</a></li>
 <li>
-<p><a href="#azure_apim_min_api_version">AZURE_APIM_MIN_API_VERSION</a></p>
+<p><a href="#azure_cosmos_defender_per_account">AZURE_COSMOS_DEFENDER_PER_ACCOUNT</a></p>
 </li>
 </ul>
 <h3 id="azure_aksminimumversion">Azure_AKSMinimumVersion<a class="headerlink" href="#azure_aksminimumversion" title="Permanent link">#</a></h3>
@@ -8623,13 +8679,30 @@ Configure this option to change the minimum API version, which defaults to <code
 <span class="nt">configuration</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">AZURE_APIM_MIN_API_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2021-12-01-preview&#39;</span>
 </code></pre></div>
+<h3 id="azure_cosmos_defender_per_account">AZURE_COSMOS_DEFENDER_PER_ACCOUNT<a class="headerlink" href="#azure_cosmos_defender_per_account" title="Permanent link">#</a></h3>
+<p>This configuration option enables validation for that each Cosmos DB account is associated with a Microsoft Defender for Cosmos DB resource level plan.
+Configure this option to enable the per account validation, which defaults to <code>false</code>.</p>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">configuration</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">AZURE_COSMOS_DEFENDER_PER_ACCOUNT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boolean</span>
+</code></pre></div>
+<p>Default:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># YAML: The default AZURE_COSMOS_DEFENDER_PER_ACCOUNT configuration option</span>
+<span class="nt">configuration</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">AZURE_COSMOS_DEFENDER_PER_ACCOUNT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># YAML: Set the AZURE_COSMOS_DEFENDER_PER_ACCOUNT configuration option to true</span>
+<span class="nt">configuration</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">AZURE_COSMOS_DEFENDER_PER_ACCOUNT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2022-11-07
+      2023-05-21
     
   </small>
 </div>
@@ -8748,7 +8821,7 @@ Configure this option to change the minimum API version, which defaults to <code
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.indexes", {"navigation.sections": {"level": 1}}, "navigation.tabs", "content.code.annotate", "content.tabs.link", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c2be25ad.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
