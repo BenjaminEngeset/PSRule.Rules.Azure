@@ -21,7 +21,7 @@
         <link rel="next" href="../features/">
       
       <link rel="icon" href="../assets/ms_icon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -122,10 +122,6 @@
     <div data-md-component="announce">
       
     </div>
-    
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-      </div>
     
     
       
@@ -482,18 +478,32 @@
         About
       </a>
       
-        
+        <!-- Determine title -->
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="In this article">
   
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
   
   
     
   
+
+  <!-- Table of contents title and list -->
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      In this article
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -507,6 +517,13 @@
         <li class="md-nav__item">
   <a href="#introducing-psrule-for-azure" class="md-nav__link">
     Introducing PSRule for Azure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-uses-psrule-for-azure" class="md-nav__link">
+    Who uses PSRule for Azure?
   </a>
   
 </li>
@@ -561,8 +578,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-instructions/" class="md-nav__link">
-        Installation
+      <a href="../install/" class="md-nav__link">
+        Install
       </a>
     </li>
   
@@ -758,10 +775,64 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../validating-locally/" class="md-nav__link">
-        Validating locally
+      <a href="../concepts/suppression/" class="md-nav__link">
+        Suppression
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/policy-as-rules/" class="md-nav__link">
+        Policy as rules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2206,6 +2277,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -2718,20 +2795,6 @@
     <li class="md-nav__item">
       <a href="../en/rules/Azure.AKS.PlatformLogs/" class="md-nav__link">
         Azure.AKS.PlatformLogs
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../en/rules/Azure.AKS.PodIdentity/" class="md-nav__link">
-        Azure.AKS.PodIdentity
       </a>
     </li>
   
@@ -4102,6 +4165,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../en/rules/Azure.Databricks.SecureConnectivity/" class="md-nav__link">
+        Azure.Databricks.SecureConnectivity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../en/rules/Azure.Defender.Api/" class="md-nav__link">
         Azure.Defender.Api
       </a>
@@ -5166,6 +5243,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../en/rules/Azure.MySQL.AAD/" class="md-nav__link">
+        Azure.MySQL.AAD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../en/rules/Azure.MySQL.AllowAzureAccess/" class="md-nav__link">
         Azure.MySQL.AllowAzureAccess
       </a>
@@ -5434,6 +5525,34 @@
     <li class="md-nav__item">
       <a href="../en/rules/Azure.Policy.WaiverExpiry/" class="md-nav__link">
         Azure.Policy.WaiverExpiry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/rules/Azure.PostgreSQL.AAD/" class="md-nav__link">
+        Azure.PostgreSQL.AAD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/rules/Azure.PostgreSQL.AADOnly/" class="md-nav__link">
+        Azure.PostgreSQL.AADOnly
       </a>
     </li>
   
@@ -7874,6 +7993,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
@@ -8090,6 +8213,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../en/baselines/Azure.GA_2023_06/" class="md-nav__link">
+        Azure.GA_2023_06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../en/baselines/Azure.MCSB.v1/" class="md-nav__link">
         Azure.MCSB.v1
       </a>
@@ -8204,6 +8341,20 @@
     <li class="md-nav__item">
       <a href="../en/baselines/Azure.Preview_2023_03/" class="md-nav__link">
         Azure.Preview_2023_03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/baselines/Azure.Preview_2023_06/" class="md-nav__link">
+        Azure.Preview_2023_06
       </a>
     </li>
   
@@ -8435,18 +8586,32 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    
+                    <!-- Determine title -->
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="In this article">
   
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
   
   
     
   
+
+  <!-- Table of contents title and list -->
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      In this article
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -8460,6 +8625,13 @@
         <li class="md-nav__item">
   <a href="#introducing-psrule-for-azure" class="md-nav__link">
     Introducing PSRule for Azure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-uses-psrule-for-azure" class="md-nav__link">
+    Who uses PSRule for Azure?
   </a>
   
 </li>
@@ -8489,28 +8661,42 @@
 <h1 id="what-is-psrule-for-azure">What is PSRule for Azure?<a class="headerlink" href="#what-is-psrule-for-azure" title="Permanent link">#</a></h1>
 <p>PSRule for Azure is a pre-built set of tests and documentation to help you configure Azure solutions.
 These tests allow you to check your Infrastructure as Code (<abbr title="Infrastructure as Code">IaC</abbr>) before or after deployment to Azure.
-PSRule for Azure includes tests that check how <abbr title="Infrastructure as Code">IaC</abbr> is written and how Azure resources are configured.</p>
+PSRule for Azure includes unit tests that check how Azure resources defined in <abbr title="Azure Resource Manager">ARM</abbr> templates or Bicep code are configured.</p>
 <h2 id="why-use-psrule-for-azure">Why use PSRule for Azure?<a class="headerlink" href="#why-use-psrule-for-azure" title="Permanent link">#</a></h2>
 <p>PSRule for Azure helps you identify changes to improve the quality of solutions deployed on Azure.
 PSRule for Azure uses the principles of the Azure Well-Architected Framework (WAF) to:</p>
 <ul>
 <li><strong>Suggest changes</strong> &mdash; you can use to improve the quality of your solution.</li>
 <li><strong>Link to documentation</strong> &mdash; to learn how this applies to your environment.</li>
-<li><strong>Demonstrate</strong> &mdash; how you can implement the change with examples.</li>
+<li><strong>Demonstrate</strong> &mdash; how you can implement the change with examples.
+  Examples are provided in Azure Bicep and <abbr title="Azure Resource Manager">ARM</abbr> templates syntax.</li>
 </ul>
 <p>If you want to write your own tests, you can do that too in your choice of YAML, JSON, or PowerShell.
-However with over 360 tests already built, you can identify and fix issues day one.</p>
+However with over 390 tests already built, you can identify and fix issues day one.</p>
+<div class="admonition learn">
+<p class="admonition-title">Get started with a sample repository</p>
+<p>To get started with a sample repository, see <a href="https://github.com/Azure/PSRule.Rules.Azure-quickstart">PSRule for Azure Quick Start</a> on GitHub.</p>
+</div>
 <h2 id="introducing-psrule-for-azure">Introducing PSRule for Azure<a class="headerlink" href="#introducing-psrule-for-azure" title="Permanent link">#</a></h2>
 <p>An introduction to PSRule for Azure and how it relates to the Azure Well-Architected Framework.
 We also give an quick overview of baselines, handling exceptions, and reporting options.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L4CIDqnXLPk" title="YouTube - Introducing PSRule for Azure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h2 id="who-uses-psrule-for-azure">Who uses PSRule for Azure?<a class="headerlink" href="#who-uses-psrule-for-azure" title="Permanent link">#</a></h2>
+<p>Several first-party repositories use PSRule for Azure.
+Here's a few you may be familiar with:</p>
+<ul>
+<li><a href="https://github.com/Azure/ResourceModules">Azure/ResourceModules</a> - Common Azure Resource Modules Library</li>
+<li><a href="https://github.com/Azure/ALZ-Bicep">Azure/ALZ-Bicep</a> - Azure Landing Zones (ALZ)</li>
+<li><a href="https://github.com/Azure/AKS-Construction">Azure/AKS-Construction</a> - AKS Construction</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2023-04-23
+      2023-07-31
     
   </small>
 </div>
@@ -8572,10 +8758,10 @@ We also give an quick overview of baselines, handling exceptions, and reporting 
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.indexes", {"navigation.sections": {"level": 1}}, "navigation.tabs", "content.code.annotate", "content.tabs.link", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.indexes", {"navigation.sections": {"level": 1}}, "navigation.tabs", "content.code.annotate", "content.tabs.link", "content.code.copy"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="../../../assets/ms_icon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -25,10 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -120,10 +120,6 @@
     <div data-md-component="announce">
       
     </div>
-    
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-      </div>
     
     
       
@@ -507,8 +503,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../install-instructions/" class="md-nav__link">
-        Installation
+      <a href="../../../install/" class="md-nav__link">
+        Install
       </a>
     </li>
   
@@ -704,10 +700,64 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../validating-locally/" class="md-nav__link">
-        Validating locally
+      <a href="../../../concepts/suppression/" class="md-nav__link">
+        Suppression
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/policy-as-rules/" class="md-nav__link">
+        Policy as rules
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2154,6 +2204,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -2666,20 +2722,6 @@
     <li class="md-nav__item">
       <a href="../../rules/Azure.AKS.PlatformLogs/" class="md-nav__link">
         Azure.AKS.PlatformLogs
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../rules/Azure.AKS.PodIdentity/" class="md-nav__link">
-        Azure.AKS.PodIdentity
       </a>
     </li>
   
@@ -4050,6 +4092,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../rules/Azure.Databricks.SecureConnectivity/" class="md-nav__link">
+        Azure.Databricks.SecureConnectivity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../rules/Azure.Defender.Api/" class="md-nav__link">
         Azure.Defender.Api
       </a>
@@ -5114,6 +5170,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../rules/Azure.MySQL.AAD/" class="md-nav__link">
+        Azure.MySQL.AAD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../rules/Azure.MySQL.AllowAzureAccess/" class="md-nav__link">
         Azure.MySQL.AllowAzureAccess
       </a>
@@ -5382,6 +5452,34 @@
     <li class="md-nav__item">
       <a href="../../rules/Azure.Policy.WaiverExpiry/" class="md-nav__link">
         Azure.Policy.WaiverExpiry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rules/Azure.PostgreSQL.AAD/" class="md-nav__link">
+        Azure.PostgreSQL.AAD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rules/Azure.PostgreSQL.AADOnly/" class="md-nav__link">
+        Azure.PostgreSQL.AADOnly
       </a>
     </li>
   
@@ -7824,6 +7922,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
@@ -7862,18 +7964,32 @@
         Azure.All
       </a>
       
-        
+        <!-- Determine title -->
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="In this article">
   
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
   
   
     
   
+
+  <!-- Table of contents title and list -->
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      In this article
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -8081,6 +8197,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../Azure.GA_2023_06/" class="md-nav__link">
+        Azure.GA_2023_06
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Azure.MCSB.v1/" class="md-nav__link">
         Azure.MCSB.v1
       </a>
@@ -8195,6 +8325,20 @@
     <li class="md-nav__item">
       <a href="../Azure.Preview_2023_03/" class="md-nav__link">
         Azure.Preview_2023_03
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Azure.Preview_2023_06/" class="md-nav__link">
+        Azure.Preview_2023_06
       </a>
     </li>
   
@@ -8426,18 +8570,32 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    
+                    <!-- Determine title -->
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="In this article">
   
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
   
   
     
   
+
+  <!-- Table of contents title and list -->
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      In this article
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -8475,7 +8633,7 @@
   <h1 id="azureall">Azure.All<a class="headerlink" href="#azureall" title="Permanent link">#</a></h1>
 <p>Includes all Azure rules.</p>
 <h2 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">#</a></h2>
-<p>The following rules are included within <code>Azure.All</code>. This baseline includes a total of 389 rules.</p>
+<p>The following rules are included within <code>Azure.All</code>. This baseline includes a total of 392 rules.</p>
 <table>
 <thead>
 <tr>
@@ -8663,11 +8821,6 @@
 <tr>
 <td><a href="../../rules/Azure.AKS.PlatformLogs/">Azure.AKS.PlatformLogs</a></td>
 <td>AKS clusters should collect platform diagnostic logs to monitor the state of workloads.</td>
-<td>Important</td>
-</tr>
-<tr>
-<td><a href="../../rules/Azure.AKS.PodIdentity/">Azure.AKS.PodIdentity</a></td>
-<td>Configure AKS clusters to use AAD pod identities to access Azure resources securely.</td>
 <td>Important</td>
 </tr>
 <tr>
@@ -9151,6 +9304,11 @@
 <td>Important</td>
 </tr>
 <tr>
+<td><a href="../../rules/Azure.Databricks.SecureConnectivity/">Azure.Databricks.SecureConnectivity</a></td>
+<td>Use Databricks workspaces configured for secure cluster connectivity.</td>
+<td>Critical</td>
+</tr>
+<tr>
 <td><a href="../../rules/Azure.DataFactory.Version/">Azure.DataFactory.Version</a></td>
 <td>Consider migrating to DataFactory v2.</td>
 <td>Awareness</td>
@@ -9536,6 +9694,11 @@
 <td>Important</td>
 </tr>
 <tr>
+<td><a href="../../rules/Azure.MySQL.AAD/">Azure.MySQL.AAD</a></td>
+<td>Use Azure Active Directory (AAD) authentication with Azure Database for MySQL databases.</td>
+<td>Critical</td>
+</tr>
+<tr>
 <td><a href="../../rules/Azure.MySQL.AllowAzureAccess/">Azure.MySQL.AllowAzureAccess</a></td>
 <td>Determine if access from Azure services is required.</td>
 <td>Important</td>
@@ -9634,6 +9797,16 @@
 <td><a href="../../rules/Azure.Policy.WaiverExpiry/">Azure.Policy.WaiverExpiry</a></td>
 <td>Configure policy waiver exemptions to expire.</td>
 <td>Awareness</td>
+</tr>
+<tr>
+<td><a href="../../rules/Azure.PostgreSQL.AAD/">Azure.PostgreSQL.AAD</a></td>
+<td>Use Azure Active Directory (AAD) authentication with Azure Database for PostgreSQL databases.</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><a href="../../rules/Azure.PostgreSQL.AADOnly/">Azure.PostgreSQL.AADOnly</a></td>
+<td>Ensure Azure AD-only authentication is enabled with Azure Database for PostgreSQL databases.</td>
+<td>Important</td>
 </tr>
 <tr>
 <td><a href="../../rules/Azure.PostgreSQL.AllowAzureAccess/">Azure.PostgreSQL.AllowAzureAccess</a></td>
@@ -9742,7 +9915,7 @@
 </tr>
 <tr>
 <td><a href="../../rules/Azure.Redis.FirewallIPRange/">Azure.Redis.FirewallIPRange</a></td>
-<td>Determine if there is an excessive nunber of permitted IP addresses for the Redis cache.</td>
+<td>Determine if there is an excessive number of permitted IP addresses for the Redis cache.</td>
 <td>Critical</td>
 </tr>
 <tr>
@@ -10441,7 +10614,7 @@
   <small>
     
       Last update:
-      2023-04-29
+      2023-07-31
     
   </small>
 </div>
@@ -10499,10 +10672,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", {"navigation.sections": {"level": 1}}, "navigation.tabs", "content.code.annotate", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", {"navigation.sections": {"level": 1}}, "navigation.tabs", "content.code.annotate", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>
