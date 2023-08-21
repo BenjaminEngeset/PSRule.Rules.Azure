@@ -1216,6 +1216,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v1300-b0011-pre-release" class="md-nav__link">
+    v1.30.0-B0011 (pre-release)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v1290" class="md-nav__link">
     v1.29.0
   </a>
@@ -2986,6 +2993,10 @@
       <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
       
       
+        
+          
+        
+          
         
           
         
@@ -6171,6 +6182,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../en/rules/Azure.FrontDoor.ManagedIdentity/" class="md-nav__link">
+        Azure.FrontDoor.ManagedIdentity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../en/rules/Azure.FrontDoor.MinTLS/" class="md-nav__link">
         Azure.FrontDoor.MinTLS
       </a>
@@ -7279,6 +7304,20 @@
     <li class="md-nav__item">
       <a href="../en/rules/Azure.PublicIP.IsAttached/" class="md-nav__link">
         Azure.PublicIP.IsAttached
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/rules/Azure.PublicIP.MigrateStandard/" class="md-nav__link">
+        Azure.PublicIP.MigrateStandard
       </a>
     </li>
   
@@ -10195,6 +10234,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v1300-b0011-pre-release" class="md-nav__link">
+    v1.30.0-B0011 (pre-release)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v1290" class="md-nav__link">
     v1.29.0
   </a>
@@ -11660,16 +11706,7 @@
   See <a href="../upgrade-notes/">upgrade notes</a> for more information.</li>
 </ul>
 <h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">#</a></h2>
-<ul>
-<li>New rules:<ul>
-<li>Azure Firewall:<ul>
-<li>Check that Azure Firewall polices has configured threat intelligence-based filtering in <code>alert and deny</code> mode by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
-<a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2354">#2354</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id="v1300-b0011-pre-release">v1.30.0-B0011 (pre-release)<a class="headerlink" href="#v1300-b0011-pre-release" title="Permanent link">#</a></h2>
 <p>What's changed since v1.29.0:</p>
 <ul>
 <li>New rules:<ul>
@@ -11678,9 +11715,24 @@
 <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2227">#2227</a></li>
 </ul>
 </li>
+<li>Azure Firewall:<ul>
+<li>Check that Azure Firewall polices has configured threat intelligence-based filtering in <code>alert and deny</code> mode by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
+<a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2354">#2354</a></li>
+</ul>
+</li>
 <li>Backup vault:<ul>
 <li>Check that immutability is configured for Backup vaults by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
 <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2387">#2387</a></li>
+</ul>
+</li>
+<li>Front Door:<ul>
+<li>Check that managed identity for Azure Front Door instances are configured by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2378">#2378</a></li>
+</ul>
+</li>
+<li>Public IP address:<ul>
+<li>Check that Public IP addresses uses Standard SKU by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2376">#2376</a></li>
 </ul>
 </li>
 <li>Recovery Services vault:<ul>
@@ -17128,7 +17180,7 @@ What's changed since v1.24.0:</p>
   <small>
     
       Last update:
-      2023-08-20
+      2023-08-21
     
   </small>
 </div>
