@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/ms_icon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
@@ -1485,6 +1485,27 @@
         <li class="md-nav__item">
   <a href="#unreleased" class="md-nav__link">
     Unreleased
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1300-b0080-pre-release" class="md-nav__link">
+    v1.30.0-B0080 (pre-release)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1300-b0047-pre-release" class="md-nav__link">
+    v1.30.0-B0047 (pre-release)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1300-b0026-pre-release" class="md-nav__link">
+    v1.30.0-B0026 (pre-release)
   </a>
   
 </li>
@@ -3360,6 +3381,8 @@
   
     
     
+      
+        
       
         
       
@@ -6636,6 +6659,26 @@
   
   <span class="md-ellipsis">
     Azure.Cognitive.PublicAccess
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../en/rules/Azure.ContainerApp.APIVersion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure.ContainerApp.APIVersion
   </span>
   
 
@@ -13285,6 +13328,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#v1300-b0080-pre-release" class="md-nav__link">
+    v1.30.0-B0080 (pre-release)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1300-b0047-pre-release" class="md-nav__link">
+    v1.30.0-B0047 (pre-release)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v1300-b0026-pre-release" class="md-nav__link">
+    v1.30.0-B0026 (pre-release)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v1300-b0011-pre-release" class="md-nav__link">
     v1.30.0-B0011 (pre-release)
   </a>
@@ -14748,29 +14812,101 @@
   If you have this option configured, please update it to <code>AZURE_AKS_CLUSTER_MINIMUM_VERSION</code>.
   Support for <code>Azure_AKSMinimumVersion</code> will be removed in v2.
   See <a href="../upgrade-notes/">upgrade notes</a> for more information.</li>
+<li>The configuration option <code>Azure_AllowedRegions</code> is replaced with <code>AZURE_RESOURCE_ALLOWED_LOCATIONS</code>.
+  If you have this option configured, please update it to <code>AZURE_RESOURCE_ALLOWED_LOCATIONS</code>.
+  Support for <code>Azure_AllowedRegions</code> will be removed in v2.
+  See <a href="../upgrade-notes/">upgrade notes</a> for more information.</li>
 <li>The <code>SupportsTag</code> PowerShell function has been replaced with the <code>Azure.Resource.SupportsTags</code> selector.
   Update PowerShell rules to use the <code>Azure.Resource.SupportsTags</code> selector instead.
   Support for the <code>SupportsTag</code> function will be removed in v2.
   See <a href="../upgrade-notes/">upgrade notes</a> for more information.</li>
 </ul>
 <h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">#</a></h2>
+<h2 id="v1300-b0080-pre-release">v1.30.0-B0080 (pre-release)<a class="headerlink" href="#v1300-b0080-pre-release" title="Permanent link">#</a></h2>
+<p>What's changed since pre-release v1.30.0-B0047:</p>
+<ul>
+<li>General improvements:<ul>
+<li><strong>Important change:</strong> Replaced the <code>Azure_AllowedRegions</code> option with <code>AZURE_RESOURCE_ALLOWED_LOCATIONS</code>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/941">#941</a><ul>
+<li>For compatibility, if <code>Azure_AllowedRegions</code> is set it will be used instead of <code>AZURE_RESOURCE_ALLOWED_LOCATIONS</code>.</li>
+<li>If only <code>AZURE_RESOURCE_ALLOWED_LOCATIONS</code> is set, this value will be used.</li>
+<li>The default will be used neither options are configured.</li>
+<li>If <code>Azure_AllowedRegions</code> is set a warning will be generated until the configuration is removed.</li>
+<li>Support for <code>Azure_AllowedRegions</code> is deprecated and will be removed in v2.</li>
+<li>See <a href="../upgrade-notes/">upgrade notes</a> for details.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Engineering:<ul>
+<li>Bump Microsoft.NET.Test.Sdk to v17.7.2.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/pull/2407">#2407</a></li>
+<li>Bump BenchmarkDotNet to v0.13.8.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/pull/2425">#2425</a></li>
+<li>Bump BenchmarkDotNet.Diagnostics.Windows to v0.13.8.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/pull/2425">#2425</a></li>
+</ul>
+</li>
+<li>Bug fixes:<ul>
+<li>Fixed false positive with <code>Azure.Storage.SecureTransfer</code> on new API versions by <a href="https://github.com/BernieWhite">@BernieWhite</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2414">#2414</a></li>
+<li>Fixed false positive with <code>Azure.VNET.LocalDNS</code> for DNS server addresses out of local scope by <a href="https://github.com/BernieWhite">@BernieWhite</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2370">#2370</a><ul>
+<li>This bug fix introduces a configuration option to flag when DNS from an Identity subscription is used.</li>
+<li>Set <code>AZURE_VNET_DNS_WITH_IDENTITY</code> to <code>true</code> when using an Identity subscription for DNS.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="v1300-b0047-pre-release">v1.30.0-B0047 (pre-release)<a class="headerlink" href="#v1300-b0047-pre-release" title="Permanent link">#</a></h2>
+<p>What's changed since pre-release v1.30.0-B0026:</p>
+<ul>
+<li>Engineering:<ul>
+<li>Bump Microsoft.CodeAnalysis.NetAnalyzers to v7.0.4.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/pull/2405">#2405</a></li>
+</ul>
+</li>
+<li>Bug fixes:<ul>
+<li>Fixed lambda map in map variable by <a href="https://github.com/BernieWhite">@BernieWhite</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2410">#2410</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="v1300-b0026-pre-release">v1.30.0-B0026 (pre-release)<a class="headerlink" href="#v1300-b0026-pre-release" title="Permanent link">#</a></h2>
+<p>What's changed since pre-release v1.30.0-B0011:</p>
+<ul>
+<li>New rules:<ul>
+<li>Azure Container Apps:<ul>
+<li>Check that Container Apps uses a supported API version by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2398">#2398</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bug fixes:<ul>
+<li>Fixed non-resource group rule triggering for a resource group by <a href="https://github.com/BernieWhite">@BernieWhite</a>.
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2401">#2401</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="v1300-b0011-pre-release">v1.30.0-B0011 (pre-release)<a class="headerlink" href="#v1300-b0011-pre-release" title="Permanent link">#</a></h2>
 <p>What's changed since v1.29.0:</p>
 <ul>
 <li>New rules:<ul>
 <li>Azure Database for MySQL:<ul>
 <li>Check that Azure AD-only authentication is configured for Azure Database for MySQL databases by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
-<a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2227">#2227</a></li>
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2227">#2227</a></li>
 </ul>
 </li>
 <li>Azure Firewall:<ul>
 <li>Check that Azure Firewall polices has configured threat intelligence-based filtering in <code>alert and deny</code> mode by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
-<a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2354">#2354</a></li>
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2354">#2354</a></li>
 </ul>
 </li>
 <li>Backup vault:<ul>
 <li>Check that immutability is configured for Backup vaults by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
-<a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2387">#2387</a></li>
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2387">#2387</a></li>
 </ul>
 </li>
 <li>Front Door:<ul>
@@ -14785,7 +14921,7 @@
 </li>
 <li>Recovery Services vault:<ul>
 <li>Check that immutability is configured for Recovery Services vaults by <a href="https://github.com/BenjaminEngeset">@BenjaminEngeset</a>.
-<a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2386">#2386</a></li>
+  <a href="https://github.com/Azure/PSRule.Rules.Azure/issues/2386">#2386</a></li>
 </ul>
 </li>
 </ul>
@@ -20228,7 +20364,7 @@ What's changed since v1.24.0:</p>
   <small>
     
       Last update:
-      2023-08-21
+      2023-09-13
     
   </small>
 </div>
@@ -20293,7 +20429,7 @@ What's changed since v1.24.0:</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.indexes", {"navigation.sections": {"level": 1}}, "navigation.tabs", "content.code.annotate", "content.tabs.link", "content.code.copy"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>

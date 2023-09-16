@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/ms_icon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -1852,6 +1852,8 @@
   
     
     
+      
+        
       
         
       
@@ -5128,6 +5130,26 @@
   
   <span class="md-ellipsis">
     Azure.Cognitive.PublicAccess
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../en/rules/Azure.ContainerApp.APIVersion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure.ContainerApp.APIVersion
   </span>
   
 
@@ -12229,7 +12251,7 @@
 <tr>
 <td><a href="Azure.Resource.AllowedRegions.md">Azure.Resource.AllowedRegions</a></td>
 <td>Resources should be deployed to allowed regions.</td>
-<td>Awareness</td>
+<td>Important</td>
 <td>Error</td>
 </tr>
 <tr>
@@ -13549,6 +13571,12 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="Azure.ContainerApp.APIVersion.md">Azure.ContainerApp.APIVersion</a></td>
+<td>Migrate from retired API version to a supported version.</td>
+<td>Important</td>
+<td>Error</td>
+</tr>
+<tr>
 <td><a href="Azure.ContainerApp.DisableAffinity.md">Azure.ContainerApp.DisableAffinity</a></td>
 <td>Disable session affinity to prevent unbalanced distribution.</td>
 <td>Important</td>
@@ -14495,13 +14523,13 @@
 </tr>
 <tr>
 <td><a href="Azure.PublicIP.IsAttached.md">Azure.PublicIP.IsAttached</a></td>
-<td>Public IP address should be attached or removed.</td>
+<td>Public IP addresses should be attached or cleaned up if not in use.</td>
 <td>Important</td>
 <td>Error</td>
 </tr>
 <tr>
 <td><a href="Azure.PublicIP.MigrateStandard.md">Azure.PublicIP.MigrateStandard</a></td>
-<td>Use the Standard SKU for Public IP addresses. Basic SKU for Public IP addresses will be retired.</td>
+<td>Use the Standard SKU for Public IP addresses as the Basic SKU will be retired.</td>
 <td>Important</td>
 <td>Error</td>
 </tr>
@@ -14852,7 +14880,7 @@
 </tr>
 <tr>
 <td><a href="Azure.Storage.FileShareSoftDelete.md">Azure.Storage.FileShareSoftDelete</a></td>
-<td>Enable fileshare soft delete on Storage Accounts</td>
+<td>Enable soft delete on Storage Accounts file shares.</td>
 <td>Important</td>
 <td>Error</td>
 </tr>
@@ -15248,7 +15276,7 @@
 </tr>
 <tr>
 <td><a href="Azure.VNET.LocalDNS.md">Azure.VNET.LocalDNS</a></td>
-<td>Virtual networks (VNETs) should use Azure local DNS servers.</td>
+<td>Virtual networks (VNETs) should use DNS servers deployed within the same Azure region.</td>
 <td>Important</td>
 <td>Error</td>
 </tr>
@@ -15266,7 +15294,7 @@
 </tr>
 <tr>
 <td><a href="Azure.VNET.SingleDNS.md">Azure.VNET.SingleDNS</a></td>
-<td>VNETs should have at least two DNS servers assigned.</td>
+<td>Virtual networks (VNETs) should have at least two DNS servers assigned.</td>
 <td>Important</td>
 <td>Error</td>
 </tr>
@@ -15392,7 +15420,7 @@
   <small>
     
       Last update:
-      2023-08-20
+      2023-09-09
     
   </small>
 </div>
@@ -15453,7 +15481,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", {"navigation.sections": {"level": 1}}, "navigation.tabs", "content.code.annotate", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>
