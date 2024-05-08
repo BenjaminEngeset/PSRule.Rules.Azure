@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.21.1.54444",
-      "templateHash": "1950988785245451580"
+      "version": "0.26.54.24096",
+      "templateHash": "14583622702129964730"
     }
   },
   "parameters": {
@@ -22,14 +22,6 @@
         "description": "The location resources will be deployed."
       }
     },
-    "asgName": {
-      "type": "string",
-      "defaultValue": "asg-001"
-    },
-    "nsgName": {
-      "type": "string",
-      "defaultValue": "nsg-001"
-    },
     "lbName": {
       "type": "string",
       "defaultValue": "lb-001"
@@ -38,7 +30,7 @@
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[parameters('name')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -65,7 +57,7 @@
             "properties": {
               "addressPrefix": "10.0.1.0/24",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('name'))]"
               }
             }
           },
@@ -86,13 +78,13 @@
         ]
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('name'))]"
       ]
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
-      "apiVersion": "2023-05-01",
-      "name": "[parameters('nsgName')]",
+      "apiVersion": "2023-09-01",
+      "name": "[parameters('name')]",
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
@@ -160,18 +152,19 @@
     },
     {
       "type": "Microsoft.Network/applicationSecurityGroups",
-      "apiVersion": "2023-05-01",
-      "name": "[parameters('asgName')]",
+      "apiVersion": "2023-09-01",
+      "name": "[parameters('name')]",
       "location": "[parameters('location')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Network/loadBalancers",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[parameters('lbName')]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "Standard"
+        "name": "Standard",
+        "tier": "Regional"
       },
       "properties": {
         "frontendIPConfigurations": [
@@ -180,7 +173,7 @@
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "subnet": {
-                "id": "[reference(resourceId('Microsoft.Network/virtualNetworks', parameters('name')), '2023-05-01').subnets[1].id]"
+                "id": "[reference(resourceId('Microsoft.Network/virtualNetworks', parameters('name')), '2023-09-01').subnets[1].id]"
               }
             },
             "zones": [
@@ -196,8 +189,130 @@
       ]
     },
     {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2023-09-01",
+      "name": "pip-001",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "properties": {
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "idleTimeoutInMinutes": 4
+      },
+      "zones": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/loadBalancers",
+      "apiVersion": "2023-09-01",
+      "name": "[parameters('lbName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "properties": {
+        "frontendIPConfigurations": [
+          {
+            "name": "frontend1",
+            "properties": {
+              "privateIPAddressVersion": "IPv4",
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('name'), 'GatewaySubnet')]"
+              }
+            },
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          }
+        ],
+        "backendAddressPools": [
+          {
+            "name": "backend1"
+          }
+        ],
+        "probes": [
+          {
+            "name": "https",
+            "properties": {
+              "protocol": "HTTPS",
+              "port": 443,
+              "requestPath": "/health",
+              "intervalInSeconds": 5,
+              "numberOfProbes": 1
+            }
+          }
+        ],
+        "loadBalancingRules": [
+          {
+            "name": "https",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', parameters('lbName'), 'frontend1')]"
+              },
+              "frontendPort": 443,
+              "backendPort": 443,
+              "enableFloatingIP": false,
+              "idleTimeoutInMinutes": 4,
+              "protocol": "TCP",
+              "loadDistribution": "Default",
+              "probe": {
+                "id": "[resourceId('Microsoft.Network/loadBalancers/probes', parameters('lbName'), 'https')]"
+              },
+              "disableOutboundSnat": true,
+              "enableTcpReset": false,
+              "backendAddressPools": [
+                {
+                  "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('lbName'), 'backend1')]"
+                }
+              ]
+            }
+          }
+        ],
+        "inboundNatRules": [],
+        "outboundRules": []
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('name'), 'GatewaySubnet')]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/loadBalancers",
+      "apiVersion": "2023-09-01",
+      "name": "[parameters('lbName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "properties": {
+        "frontendIPConfigurations": [
+          {
+            "name": "frontendIPConfig",
+            "properties": {
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'pip-001')]"
+              }
+            }
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', 'pip-001')]"
+      ]
+    },
+    {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[parameters('name')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -236,7 +351,7 @@
     },
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[parameters('name')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -255,7 +370,7 @@
     },
     {
       "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[format('{0}/{1}', parameters('name'), format('peer-to-{0}', parameters('name')))]",
       "properties": {
         "remoteVirtualNetwork": {
@@ -273,7 +388,7 @@
     },
     {
       "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[format('{0}/{1}', parameters('name'), format('peer-to-{0}', parameters('name')))]",
       "properties": {
         "remoteVirtualNetwork": {
@@ -291,7 +406,7 @@
     },
     {
       "type": "Microsoft.Network/virtualNetworks/subnets",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[format('{0}/{1}', parameters('name'), 'GatewaySubnet')]",
       "properties": {
         "addressPrefix": "10.0.0.0/27"
@@ -302,7 +417,7 @@
     },
     {
       "type": "Microsoft.Network/virtualNetworks/subnets",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[format('{0}/{1}', parameters('name'), 'AzureBastionSubnet')]",
       "properties": {
         "addressPrefix": "10.0.0.0/26"

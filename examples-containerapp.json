@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.16.2.56959",
-      "templateHash": "12316369736007793712"
+      "version": "0.26.54.24096",
+      "templateHash": "3735352956667233547"
     }
   },
   "parameters": {
@@ -17,6 +17,8 @@
     },
     "appName": {
       "type": "string",
+      "minLength": 2,
+      "maxLength": 32,
       "metadata": {
         "description": "The name of the container app."
       }
@@ -32,6 +34,18 @@
       "type": "string",
       "metadata": {
         "description": "The name of a Log Analytics workspace"
+      }
+    },
+    "subnetId": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource ID of a VNET subnet."
+      }
+    },
+    "revision": {
+      "type": "string",
+      "metadata": {
+        "description": "The revision of the container app."
       }
     }
   },
@@ -50,7 +64,7 @@
   "resources": [
     {
       "type": "Microsoft.App/managedEnvironments",
-      "apiVersion": "2022-10-01",
+      "apiVersion": "2023-05-01",
       "name": "[parameters('envName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -60,23 +74,43 @@
             "customerId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceId')), '2022-10-01').customerId]",
             "sharedKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceId')), '2022-10-01').primarySharedKey]"
           }
+        },
+        "zoneRedundant": true,
+        "workloadProfiles": [
+          {
+            "name": "Consumption",
+            "workloadProfileType": "Consumption"
+          }
+        ],
+        "vnetConfiguration": {
+          "infrastructureSubnetId": "[parameters('subnetId')]",
+          "internal": true
         }
       }
     },
     {
       "type": "Microsoft.App/containerApps",
-      "apiVersion": "2022-10-01",
+      "apiVersion": "2023-05-01",
       "name": "[parameters('appName')]",
       "location": "[parameters('location')]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
       "properties": {
-        "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('envName'))]",
+        "environmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('envName'))]",
         "template": {
-          "revisionSuffix": "",
-          "containers": "[variables('containers')]"
+          "revisionSuffix": "[parameters('revision')]",
+          "containers": "[variables('containers')]",
+          "scale": {
+            "minReplicas": 2
+          }
         },
         "configuration": {
           "ingress": {
-            "allowInsecure": false
+            "allowInsecure": false,
+            "stickySessions": {
+              "affinity": "none"
+            }
           }
         }
       },
