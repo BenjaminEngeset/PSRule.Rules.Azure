@@ -327,10 +327,41 @@ Rule 'Azure.APIM.PolicyBase' -Ref 'AZR-000371' -Type 'Microsoft.ApiManagement/se
 # Synopsis: APIs published in Azure API Management should be onboarded to Microsoft Defender for APIs.
 Rule 'Azure.APIM.DefenderCloud' -Ref 'AZR-000387' -Type 'Microsoft.ApiManagement/service' -If { HasRestApi } -Tag @{ release = 'GA'; ruleSet = '2023_12'; 'Azure.WAF/pillar' = 'Security'; } -Labels @{ 'Azure.MCSB.v1/control' = 'LT-1' } {
     $apis = @(GetSubResources -ResourceType 'Microsoft.ApiManagement/service/apis' |
-    Where-Object { $Assert.HasDefaultValue($_, 'properties.apiType', 'http').Result })
+        Where-Object { $Assert.HasDefaultValue($_, 'properties.apiType', 'http').Result })
     $defenderConfigs = @(GetSubResources -ResourceType 'Microsoft.Security/apiCollections')
     foreach ($api in $apis) {
         $Assert.In($api, 'name', @($defenderConfigs.name)).Reason($LocalizedData.ResAPIDefender, $api.name)
+    }
+}
+
+# Synopsis: Configure the same number of units as the number of availability zones or greater in a region.
+Rule 'Azure.APIM.AvailabilityZone.Units' -Ref 'AZR-000422' -Type 'Microsoft.ApiManagement/service' -If { (IsPremiumAPIM) -and (Test-IsZoneRedundant) } -Tag @{ release = 'GA'; ruleSet = '2024_06'; 'Azure.WAF/pillar' = 'Reliability'; } {
+    # Configure the same number of units as the number of availability zones or greater in the primary region. If you select 3 availability zones in the region > 3 units so that each zone hosts one unit.
+    $zones = @($TargetObject.zones)
+    $capacity = $TargetObject.sku.capacity
+    if ($zones.Count -eq '2' -and -not (Compare-Object -DifferenceObject $zones -ReferenceObject '1', '2')) {
+        $Assert.GreaterOrEqual($capacity, '.', 2)
+    }
+
+    if ($zones.Count -eq '3' -and -not (Compare-Object -DifferenceObject $zones -ReferenceObject '1', '2', '3')) {
+        $Assert.GreaterOrEqual($capacity, '.', 3)
+    }
+    
+    # Configure the same number of units as the number of availability zones or greater in additional regions. If you select 3 availability zones in a region > 3 units so that each zone hosts one unit.
+    $additionalLocations = @($TargetObject.properties.additionalLocations)
+    if ($additionalLocations.Count -gt 0) {
+        foreach ($location in $additionalLocations) {
+            $zones = @($location.zones)
+            $capacity = $location.sku.capacity
+        }
+        if ($zones.Count -eq '2' -and -not (Compare-Object -DifferenceObject $zones -ReferenceObject '1', '2')) {
+            $Assert.GreaterOrEqual($capacity, '.', 2)
+        }
+    
+        if ($zones.Count -eq '3' -and -not (Compare-Object -DifferenceObject $zones -ReferenceObject '1', '2', '3')) {
+            $Assert.GreaterOrEqual($capacity, '.', 3)
+            
+        }
     }
 }
 
@@ -389,4 +420,8 @@ function global:HasRestApi {
     }
 }
 
-#endregion Helper functions
+function global:Test-IsZoneRedundant {
+    [CmdletBinding()]
+    param ( )
+    $Assert.GreaterOrEqual($TargetObject, 'zones', 2).Result
+}
