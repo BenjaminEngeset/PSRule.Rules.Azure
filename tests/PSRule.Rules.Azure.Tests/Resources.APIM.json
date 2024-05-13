@@ -1742,7 +1742,10 @@
         "SubscriptionId": "00000000-0000-0000-0000-000000000000"
       }
     ],
-    "Zones": null
+    "Zones": [
+      "1",
+      "2"
+    ]
   },
   {
     "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-test/providers/Microsoft.ApiManagement/service/apim-F",
@@ -1820,10 +1823,12 @@
           "location": "East US",
           "sku": {
             "name": "Premium",
-            "capacity": 1
+            "capacity": 2
           },
           "zones": [
-            "1"
+            "1",
+            "2",
+            "3"
           ],
           "publicIPAddresses": [
             "xx.xx.xx.xx"
