@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/ms_icon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
@@ -2825,6 +2825,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3708,6 +3714,27 @@
   
   <span class="md-ellipsis">
     Azure.AKS.NetworkPolicy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../en/rules/Azure.AKS.NodeAutoUpgrade/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure.AKS.NodeAutoUpgrade
   </span>
   
 
@@ -8176,6 +8203,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../en/rules/Azure.MySQL.ZoneRedundantHA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure.MySQL.ZoneRedundantHA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../en/rules/Azure.NIC.Attached/" class="md-nav__link">
         
   
@@ -8685,6 +8733,27 @@
   
   <span class="md-ellipsis">
     Azure.PostgreSQL.UseSSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../en/rules/Azure.PostgreSQL.ZoneRedundantHA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Azure.PostgreSQL.ZoneRedundantHA
   </span>
   
 
@@ -14133,6 +14202,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#se09-application-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      SE:09 Application secrets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#se10-monitoring-and-threat-detection" class="md-nav__link">
     <span class="md-ellipsis">
       SE:10 Monitoring and threat detection
@@ -14630,6 +14708,12 @@
 <td>Error</td>
 </tr>
 <tr>
+<td><a href="Azure.KeyVault.KeyName.md">Azure.KeyVault.KeyName</a></td>
+<td>Key Vault Key names should meet naming requirements.</td>
+<td>Awareness</td>
+<td>Error</td>
+</tr>
+<tr>
 <td><a href="Azure.NIC.Name.md">Azure.NIC.Name</a></td>
 <td>Network Interface (NIC) names should meet naming requirements.</td>
 <td>Awareness</td>
@@ -14981,12 +15065,6 @@
 <tr>
 <td><a href="Azure.Identity.UserAssignedName.md">Azure.Identity.UserAssignedName</a></td>
 <td>Managed Identity names should meet naming requirements.</td>
-<td>Awareness</td>
-<td>Error</td>
-</tr>
-<tr>
-<td><a href="Azure.KeyVault.KeyName.md">Azure.KeyVault.KeyName</a></td>
-<td>Key Vault Key names should meet naming requirements.</td>
 <td>Awareness</td>
 <td>Error</td>
 </tr>
@@ -15993,6 +16071,18 @@
 <td>Error</td>
 </tr>
 <tr>
+<td><a href="Azure.MySQL.ZoneRedundantHA.md">Azure.MySQL.ZoneRedundantHA</a></td>
+<td>Deploy Azure Database for MySQL servers using zone-redundant high availability (HA) in supported regions to ensure high availability and resilience.</td>
+<td>Important</td>
+<td>Error</td>
+</tr>
+<tr>
+<td><a href="Azure.PostgreSQL.ZoneRedundantHA.md">Azure.PostgreSQL.ZoneRedundantHA</a></td>
+<td>Deploy Azure Database for PostgreSQL servers using zone-redundant high availability (HA) in supported regions to ensure high availability and resilience.</td>
+<td>Important</td>
+<td>Error</td>
+</tr>
+<tr>
 <td><a href="Azure.PublicIP.AvailabilityZone.md">Azure.PublicIP.AvailabilityZone</a></td>
 <td>Public IP addresses deployed with Standard SKU should use availability zones in supported regions for high availability.</td>
 <td>Important</td>
@@ -16270,12 +16360,6 @@
 <td><a href="Azure.FrontDoor.WAF.Enabled.md">Azure.FrontDoor.WAF.Enabled</a></td>
 <td>Front Door Web Application Firewall (WAF) policy must be enabled to protect back end resources.</td>
 <td>Critical</td>
-<td>Error</td>
-</tr>
-<tr>
-<td><a href="Azure.KeyVault.Firewall.md">Azure.KeyVault.Firewall</a></td>
-<td>Key Vault should only accept explicitly allowed traffic.</td>
-<td>Important</td>
 <td>Error</td>
 </tr>
 <tr>
@@ -16635,12 +16719,6 @@
 <td>Error</td>
 </tr>
 <tr>
-<td><a href="Azure.KeyVault.AccessPolicy.md">Azure.KeyVault.AccessPolicy</a></td>
-<td>Use the principal of least privilege when assigning access to Key Vault.</td>
-<td>Important</td>
-<td>Error</td>
-</tr>
-<tr>
 <td><a href="Azure.ML.UserManagedIdentity.md">Azure.ML.UserManagedIdentity</a></td>
 <td>ML workspaces should use user-assigned managed identity, rather than the default system-assigned managed identity.</td>
 <td>Important</td>
@@ -16777,12 +16855,6 @@
 <tr>
 <td><a href="Azure.AKS.SecretStoreRotation.md">Azure.AKS.SecretStoreRotation</a></td>
 <td>Enable autorotation of Secrets Store CSI Driver secrets for AKS clusters.</td>
-<td>Important</td>
-<td>Error</td>
-</tr>
-<tr>
-<td><a href="Azure.KeyVault.AutoRotationPolicy.md">Azure.KeyVault.AutoRotationPolicy</a></td>
-<td>Key Vault keys should have auto-rotation enabled.</td>
 <td>Important</td>
 <td>Error</td>
 </tr>
@@ -17044,6 +17116,12 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="Azure.AKS.NodeAutoUpgrade.md">Azure.AKS.NodeAutoUpgrade</a></td>
+<td>Deploy AKS Clusters with Node Auto-Upgrade enabled</td>
+<td>Important</td>
+<td>Error</td>
+</tr>
+<tr>
 <td><a href="Azure.Resource.AllowedRegions.md">Azure.Resource.AllowedRegions</a></td>
 <td>Resources should be deployed to allowed regions.</td>
 <td>Important</td>
@@ -17234,6 +17312,12 @@
 <td>Error</td>
 </tr>
 <tr>
+<td><a href="Azure.KeyVault.AccessPolicy.md">Azure.KeyVault.AccessPolicy</a></td>
+<td>Use the principal of least privilege when assigning access to Key Vault.</td>
+<td>Important</td>
+<td>Error</td>
+</tr>
+<tr>
 <td><a href="Azure.KeyVault.RBAC.md">Azure.KeyVault.RBAC</a></td>
 <td>Key Vaults should use Azure RBAC as the authorization system for the data plane.</td>
 <td>Awareness</td>
@@ -17364,6 +17448,12 @@
 <td><a href="Azure.EventHub.Firewall.md">Azure.EventHub.Firewall</a></td>
 <td>Access to the namespace endpoints should be restricted to only allowed sources.</td>
 <td>Critical</td>
+<td>Error</td>
+</tr>
+<tr>
+<td><a href="Azure.KeyVault.Firewall.md">Azure.KeyVault.Firewall</a></td>
+<td>Key Vault should only accept explicitly allowed traffic.</td>
+<td>Important</td>
 <td>Error</td>
 </tr>
 <tr>
@@ -17545,6 +17635,25 @@
 <tr>
 <td><a href="Azure.AppService.RemoteDebug.md">Azure.AppService.RemoteDebug</a></td>
 <td>Disable remote debugging on App Service apps when not in use.</td>
+<td>Important</td>
+<td>Error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="se09-application-secrets">SE:09 Application secrets<a class="headerlink" href="#se09-application-secrets" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Synopsis</th>
+<th>Severity</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Azure.KeyVault.AutoRotationPolicy.md">Azure.KeyVault.AutoRotationPolicy</a></td>
+<td>Key Vault keys should have auto-rotation enabled.</td>
 <td>Important</td>
 <td>Error</td>
 </tr>
